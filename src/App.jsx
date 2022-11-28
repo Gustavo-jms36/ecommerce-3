@@ -9,7 +9,7 @@ import Product from './pages/Product'
 import Purchases from './pages/Purchases'
 import { useSelector } from 'react-redux'
 
-function App() {
+function App() { 
 
   const isLoading = useSelector(state => state.isLoading);
 

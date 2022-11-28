@@ -8,7 +8,7 @@ import {
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button, InputGroup, Form, Card } from "react-bootstrap";
+import { Button, InputGroup, Form, Card } from "react-bootstrap"; 
 
 const Home = () => {
   const dispatch = useDispatch();

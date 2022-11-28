@@ -4,7 +4,7 @@ import { setIsLoading } from "./isLoading.slice";
 
 export const productsSlice = createSlice({
   name: "products",
-  initialState: [],
+  initialState: [], 
   reducers: {
     setProducts: (state, action) => {
       return action.payload;
