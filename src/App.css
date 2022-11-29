@@ -1,3 +1,5 @@
+
+
 .loading {
     background: rgba(44, 62, 80, 0.2);
     position: fixed;
@@ -45,10 +47,6 @@
       top: 24px;
       height: 32px;
     }
-  }
-
-  .home {
-    display: flex;
   }
 
   

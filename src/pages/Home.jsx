@@ -8,7 +8,7 @@ import {
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button, InputGroup, Form, Card } from "react-bootstrap"; 
+import { Button, InputGroup, Form, Card } from "react-bootstrap";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -27,63 +27,75 @@ const Home = () => {
   console.log(categories);
 
   return (
-    <div className="home">
+    <div className="home container mt-3">
       {/* boton categorias */}
-      <aside>
-        <h5>Select Category</h5>
-        {categories.map((category) => (
-          <div key={category.id}>
-            <Button onClick={() => dispatch(filterProductThunk(category.id))}>
-              {category.name}
+
+      <div className="row">
+        <div className="col-12 col-lg-3">
+          <aside>
+            <h5>Select Category</h5>
+            {categories.map((category) => (
+              <div key={category.id}>
+                <Button
+                variant="outline"
+                className="border border-0"
+                  onClick={() => dispatch(filterProductThunk(category.id))}
+                >
+                  {category.name}
+                </Button>
+              </div>
+            ))}
+          </aside>
+        </div>
+
+
+        
+        <div className="col-12 col-lg-9">
+          {/* input para buscar por nombre */}
+          <div className="row justify-content-center">
+            <div className="col-12 col-lg-8">
+          <InputGroup className="mb-3">
+            <Form.Control
+              placeholder="Recipient's username"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+              value={inputSearch}
+              onChange={(e) => setInputSearch(e.target.value)}
+            />
+            <Button
+              onClick={() => dispatch(filterProductNameThunk(inputSearch))}
+            >
+              Search
             </Button>
+          </InputGroup>
           </div>
-        ))}
-      </aside>
+          </div>
 
-      <section className="prodructs">
-        {/* input para buscar por nombre */}
-        <InputGroup className="mb-3">
-          <Form.Control
-            placeholder="Recipient's username"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-            value={inputSearch}
-            onChange={(e) => setInputSearch(e.target.value)}
-          />
-          <Button
-            variant="outline-secondary"
-            id="button-addon2"
-            onClick={() => dispatch(filterProductNameThunk(inputSearch))}
-          >
-            Search
-          </Button>
-        </InputGroup>
-
-        {/* info para las cards */}
-
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-
-        {products.map((product) => (
-          <ul key={product.id}>
-            <Link to={`/products/${product.id}`}>
-              <li>
-                {product?.title}
-                <img src={product.productImgs[0]} alt="..." />
-              </li>
-            </Link>
-          </ul>
-        ))}
-      </section>
+          {/* info para las cards */}
+          <div className="row">
+          {products.map((product) => (
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" key={product.id}>
+            <Card className="p-1">
+              <Link to={`/products/${product.id}`}>
+                <Card.Img
+                  variant="top"
+                  src={product.productImgs[0]}
+                  className="img-card"
+                />
+                <Card.Body>
+                  <Card.Title>{product?.title}</Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                </Card.Body>
+              </Link>
+            </Card>
+          </div>
+          ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
