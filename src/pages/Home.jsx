@@ -84,8 +84,8 @@ const Home = () => {
                 />
                 <Card.Body  className="text-decoration-none">
                   <Card.Title className="text-decoration-none">{product?.title}</Card.Title>
-                  <Card.Text>
-                    <p class="text-start"><span className="text-muted">Price</span><br />{product.price}</p>
+                  <Card.Text className="text-start">
+                    <span className="text-muted">Price</span><br />{product.price}
                   </Card.Text>
                 </Card.Body>
               </Link>
