@@ -75,18 +75,17 @@ const Home = () => {
           <div className="row">
           {products.map((product) => (
             <div className="col-12 col-sm-6 col-md-4  mb-3" key={product.id}>
-            <Card className="p-1" style={{ height: "22rem"}}>
-              <Link class="text-decoration-none text-center" to={`/products/${product.id}`}>
+            <Card className="p-1" style={{ height: "23rem"}}>
+              <Link className="text-decoration-none text-center text-reset" to={`/products/${product.id}`}>
                 <Card.Img
                   variant="top"
                   src={product.productImgs[0]}
                   className="img-card my-3"
                 />
-                <Card.Body  class="text-decoration-none">
-                  <Card.Title class="text-decoration-none">{product?.title}</Card.Title>
+                <Card.Body  className="text-decoration-none">
+                  <Card.Title className="text-decoration-none">{product?.title}</Card.Title>
                   <Card.Text>
-                    {/* Some quick example text to build on the card title and make
-                    up the bulk of the card's content. */}
+                    <p class="text-start"><span className="text-muted">Price</span><br />{product.price}</p>
                   </Card.Text>
                 </Card.Body>
               </Link>

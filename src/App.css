@@ -53,3 +53,9 @@
   width: 150px;
   object-fit: contain;
 }
+
+.img-product {
+  height: 450px;
+  width: 450px;
+  object-fit: contain;
+}
