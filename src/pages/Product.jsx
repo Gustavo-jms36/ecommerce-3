@@ -39,57 +39,67 @@ const Product = () => {
 
   return (
     <div className="container">
-      <div className="row mt-5 align-items-center">
-        <h1 className="fs-2 mb-5 text-center">{products?.title}</h1>
-        <div className="col-12 col-md-6">
-          <img src={products?.productImgs[0]} alt="" className="img-product" />
+      <div className="bg-white p-3 mt-3">
+        <div className="row mt-5 align-items-center">
+          <h1 className="fs-2 mb-2 text-center">{products?.title}</h1>
+          <div className="col-12 col-md-6">
+            <img
+              src={products?.productImgs[0]}
+              alt=""
+              className="img-product"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <p className="text-info-product">{products?.description}</p>
+            <input
+              className="mb-3"
+              type="text"
+              placeholder="Qty"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />{" "}
+            <br />
+            <Button onClick={addCart}>Add Cart</Button>
+          </div>
         </div>
-        <div className="col-12 col-md-6">
-          <p>{products?.description}</p>
-          <input
-            className="mb-3"
-            type="text"
-            placeholder="Qty"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          />{" "}
-          <br />
-          <Button onClick={addCart}>Add Cart</Button>
-        </div>
-        <h2 className="fs-2 text-center my-5 pt-5">Suggest Products</h2>
-        <div className="row">
-          {suggestProduct.map((product) => (
-            <div className="col-12 col-sm-6 col-lg-4 mb-3" key={product.id}>
-              <Card className="p- shadow p-3 mb-5 bg-body1" style={{ height: "20rem" }}>
-                <Link
-                  className="text-decoration-none text-center"
-                  to={`/products/${product.id}`}
-                >
-                  <Card.Img
-                    variant="top"
-                    src={product.productImgs[0]}
-                    className="img-card my-3"
-                  />
-                  <Card.Body className="text-decoration-none">
-                    <Card.Title className="text-decoration-none">
-                      {product?.title}
-                    </Card.Title>
-                    <Card.Text>
-                      {/* Some quick example text to build on the card title and make
-                  up the bulk of the card's content. */}
-                    </Card.Text>
-                  </Card.Body>
-                </Link>
-              </Card>
-            </div>
+      </div>
 
-            // <ul key={product.id}>
-            //   <li>
-            //     <Link to={`/products/${product.id}`}>{product.title}</Link>
-            //   </li>
-            // </ul>
-          ))}
-        </div>
+      <h2 className="fs-2 text-center my-5 pt-5">Suggest Products</h2>
+      <div className="row">
+        {suggestProduct.map((product) => (
+          <div className="col-12 col-sm-6 col-lg-4 mb-3" key={product.id}>
+            <Card
+              className="p- shadow p-3 mb-5 bg-body1"
+              style={{ height: "20rem" }}
+            >
+              <Link
+                className="text-decoration-none text-center"
+                to={`/products/${product.id}`}
+              >
+                <Card.Img
+                  variant="top"
+                  src={product.productImgs[0]}
+                  className="img-card my-3"
+                />
+                <Card.Body className="text-decoration-none">
+                  <Card.Title className="text-decoration-none">
+                    {product?.title}
+                  </Card.Title>
+                  <Card.Text>
+                    {/* Some quick example text to build on the card title and make
+                  up the bulk of the card's content. */}
+                  </Card.Text>
+                </Card.Body>
+              </Link>
+            </Card>
+          </div>
+
+          // <ul key={product.id}>
+          //   <li>
+          //     <Link to={`/products/${product.id}`}>{product.title}</Link>
+          //   </li>
+          // </ul>
+        ))}
       </div>
     </div>
   );

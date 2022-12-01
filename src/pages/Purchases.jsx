@@ -15,9 +15,12 @@ const Purchases = () => {
 
   return (
     <div className="container mt-4">
+      <h2 className="text-center mb-4">My purchases</h2>
+      <div className="row justify-content-center">
       {purchases.map((purchase) => (
         purchase.cart.products.map( product => (
-            <Link key={product.id} to={`/products/${product.id}`}>
+          <div className="col-12 col-lg-8" key={product.id}>
+            <Link className='text-reset text-decoration-none'  to={`/products/${product.id}`}>
             <Card  className="mb-3">
       <Card.Header>{product.createdAt}</Card.Header>
       <Card.Body className="border border-bottom">
@@ -31,15 +34,17 @@ const Purchases = () => {
         </Card.Text>
         </div>
         <div className="col-12 col-md-2">
-        <Button variant="primary">Go somewhere</Button>
+        <p>{product.price}</p>
         </div>
       </div>
       </Card.Body>
     </Card>
     </Link>
+    </div>
         ))
         
       ))}
+      </div>
     </div>
   );
 };

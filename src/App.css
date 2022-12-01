@@ -1,3 +1,8 @@
+.body {
+  color: #2c3e50;
+  background: rgb(230, 230, 230);
+}
+
 .loading {
   background: rgba(44, 62, 80, 0.2);
   position: fixed;
@@ -58,4 +63,9 @@
   height: 450px;
   width: 450px;
   object-fit: contain;
+  background: transparent;
+}
+
+.text-info-product {
+  text-align: justify;
 }
